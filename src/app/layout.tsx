@@ -1,3 +1,4 @@
+import NextAuthSessionProvider from '@/providers/sessionProvider'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
@@ -19,7 +20,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <NextAuthSessionProvider>
+          {children}
+        </NextAuthSessionProvider>
+      </body>
     </html>
   )
 }
